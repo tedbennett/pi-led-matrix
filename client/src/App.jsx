@@ -6,7 +6,7 @@ import './App.css';
 
 
 const cell = {
-  colour: '#ffffff',
+  colour: '#000000',
 };
 
 const grid = new Array(64).fill().map(() => cell);
@@ -24,7 +24,7 @@ firebase.initializeApp(config);
 
 function App() {
   const [cells, setCells] = useState(grid);
-  const [currentColour, setCurrentColour] = useState('#000000');
+  const [currentColour, setCurrentColour] = useState('#' + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0'));
 
   const clearGrid = () => {
     setCells(cells.map(() => cell));

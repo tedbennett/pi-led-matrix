@@ -1,6 +1,7 @@
 .grid {
     display: grid;
-    grid-template-columns: repeat(8, 43px);
+    grid-template-columns: repeat(8, 46px);
+    grid-template-rows: repeat(8, 46px);
 }
 
 .tile {
