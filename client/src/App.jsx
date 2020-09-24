@@ -28,10 +28,12 @@ function App() {
 
   const clearGrid = () => {
     setCells(cells.map(() => cell));
+    firebase.database().ref('data/1').set("hi");
   };
 
   const uploadToFirebase = () => {
-    firebase.database().ref('data/1').set(grid.map((cell) => cell.colour).join());
+    console.log(cells.map((cell) => cell.colour).join());
+    firebase.database().ref('data/1').set(cells.map((cell) => cell.colour).join());
   };
 
   return (
