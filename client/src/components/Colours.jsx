@@ -22,8 +22,9 @@ const Colours = ({ currentColour, setCurrentColour }) => {
                 onChange={(e) => handleClick(e.target.value)}
             />
 
-            {colours.map((colour) => {
+            {colours.map((colour, index) => {
                 return (<div className="colour-tile"
+                    key={index}
                     style={{ backgroundColor: colour }}
                     onClick={() => handleClick(colour)} />);
             })}

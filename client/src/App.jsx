@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import firebase from 'firebase';
+import firebase from 'firebase/app';
+import 'firebase/database';
 import Grid from './components/Grid';
 import Colours from './components/Colours';
 import './App.css';
@@ -20,7 +21,7 @@ const config = {
   messagingSenderId: "306617422858",
   appId: "1:306617422858:web:69f28efab0182961837bf3"
 };
-firebase.initializeApp(config);
+const app = firebase.initializeApp(config);
 
 function App() {
   const [cells, setCells] = useState(grid);
@@ -28,12 +29,10 @@ function App() {
 
   const clearGrid = () => {
     setCells(cells.map(() => cell));
-    firebase.database().ref('data/1').set("hi");
   };
 
   const uploadToFirebase = () => {
-    console.log(cells.map((cell) => cell.colour).join());
-    firebase.database().ref('data/1').set(cells.map((cell) => cell.colour).join());
+    app.database().ref('data/1').set(cells.map((cell) => cell.colour).join());
   };
 
   return (
