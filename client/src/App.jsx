@@ -12,7 +12,7 @@ const grid = new Array(64).fill().map(() => cell);
 
 function App() {
   const [cells, setCells] = useState(grid);
-  const [currentColour, setCurrentColour] = useState('#ffffff');
+  const [currentColour, setCurrentColour] = useState('#000000');
 
   const clearGrid = () => {
     setCells(cells.map(() => cell));

@@ -3,16 +3,27 @@ import './Grid.css';
 
 const Grid = ({ cells, setCells, currentColour }) => {
 
+  const updateCells = (i) => {
+    setCells(cells.map((cell, index) => {
+      if (i === index) {
+        return { colour: currentColour };
+      }
+      return cell;
+    }));
+  };
+
   const handleClick = (i, e) => {
+    e.preventDefault();
     if (e.buttons === 1) {
-      setCells(cells.map((cell, index) => {
-        if (i === index) {
-          return { colour: currentColour };
-        }
-        return cell;
-      }));
+      updateCells(i);
     }
   };
+
+  const handleTouch = (i, e) => {
+    e.preventDefault();
+    updateCells(i);
+  };
+
 
   return (
     <div className="grid">
@@ -24,6 +35,8 @@ const Grid = ({ cells, setCells, currentColour }) => {
         }}
         onMouseDown={(e) => handleClick(index, e)}
         onMouseOver={(e) => handleClick(index, e)}
+        onTouchStart={(e) => handleTouch(index, e)}
+        onTouchMove={(e) => handleTouch(index, e)}
       />
       )}
     </div>
