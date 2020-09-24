@@ -3,13 +3,15 @@ import './Grid.css';
 
 const Grid = ({ cells, setCells, currentColour }) => {
 
-  const handleClick = (i) => {
-    setCells(cells.map((cell, index) => {
-      if (i === index) {
-        return { colour: currentColour };
-      }
-      return cell;
-    }));
+  const handleClick = (i, e) => {
+    if (e.buttons === 1) {
+      setCells(cells.map((cell, index) => {
+        if (i === index) {
+          return { colour: currentColour };
+        }
+        return cell;
+      }));
+    }
   };
 
   return (
@@ -20,7 +22,9 @@ const Grid = ({ cells, setCells, currentColour }) => {
         style={{
           backgroundColor: cell.colour
         }}
-        onClick={() => { handleClick(index); }} />
+        onMouseDown={(e) => handleClick(index, e)}
+        onMouseOver={(e) => handleClick(index, e)}
+      />
       )}
     </div>
   );

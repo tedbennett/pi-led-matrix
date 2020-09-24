@@ -1,6 +1,6 @@
 .grid {
     display: grid;
-    grid-template-columns: repeat(8, 40px);
+    grid-template-columns: repeat(8, 43px);
 }
 
 .tile {
@@ -8,4 +8,8 @@
     width: 40px;
     background-color: white;
     border: 2px solid black;
+}
+
+.tile:hover {
+    transform: scale(1.2);
 }

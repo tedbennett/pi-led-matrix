@@ -10,9 +10,8 @@
     margin: 10px;
 }
 
-.selected-tile {
-    padding: 10px;
-    border: 2px solid black;
+.colour-tile:hover {
+    transform: scale(1.2);
 }
 
 input[type="color"] {
