@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Grid from './components/Grid';
 
 
@@ -6,14 +6,15 @@ const cell = {
   colour: '#000000',
 };
 
-const cells = new Array(64).fill().map(() => cell);
+const grid = new Array(64).fill().map(() => cell);
 
 
 function App() {
+  const [cells, setCells] = useState(grid);
   return (
     <div>
       <h1>Draw Something!</h1>
-      <Grid cells={cells} />
+      <Grid cells={cells} setCells={setCells} />
     </div>
   );
 }
