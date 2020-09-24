@@ -1,14 +1,12 @@
 import React from 'react';
 import './Grid.css';
 
+const Grid = ({ cells, setCells, currentColour }) => {
 
-
-const Grid = ({ cells, setCells }) => {
   const handleClick = (i) => {
-    console.log("hi");
     setCells(cells.map((cell, index) => {
       if (i === index) {
-        return { colour: "#ffffff" };
+        return { colour: currentColour };
       }
       return cell;
     }));
