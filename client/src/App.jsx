@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Grid from './components/Grid';
 import Colours from './components/Colours';
+import './App.css';
 
 const cell = {
   colour: '#ffffff',
@@ -13,14 +14,20 @@ function App() {
   const [cells, setCells] = useState(grid);
   const [currentColour, setCurrentColour] = useState('#ffffff');
 
+  const clearGrid = () => {
+    setCells(cells.map(() => cell));
+  };
+
   return (
-    <div>
-      <h1>Draw Something!</h1>
+    <div className="container">
+      <div className="center">
+        <h1 >Draw Something!</h1>
+      </div>
       <Colours currentColour={currentColour} setCurrentColour={setCurrentColour} />
       <Grid cells={cells} setCells={setCells} currentColour={currentColour} />
       <button style={{ margin: "10px" }}>Upload</button>
-      <button style={{ margin: "10px" }}>Clear</button>
-    </div>
+      <button style={{ margin: "10px" }} onClick={clearGrid}>Clear</button>
+    </div >
   );
 }
 
